@@ -1,7 +1,7 @@
 applications:
 - name: eco
   path: target/eco-0.0.1-SNAPSHOT.jar
-  buildpack: https://github.com/cloudfoundry/java-buildpack.git 
-  domain: cfapps.io
+  buildpacks:
+    - https://github.com/cloudfoundry/java-buildpack.git
   memory: 1024m
   instances: 1
