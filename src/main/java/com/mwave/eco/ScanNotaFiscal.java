@@ -13,6 +13,7 @@ public class ScanNotaFiscal {
     private Long id;
     private Long userId;
     private String url;
+    private String status;
 
     public ScanNotaFiscal() {
     }
@@ -39,5 +40,13 @@ public class ScanNotaFiscal {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

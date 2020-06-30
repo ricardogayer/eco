@@ -51,6 +51,8 @@ public class Eco {
         System.out.println("Nota Fiscal");
         System.out.println("User ID: " + scanNotaFiscal.getUserId());
         System.out.println("URL : " + scanNotaFiscal.getUrl());
+        System.out.println("Status: " + scanNotaFiscal.getStatus());
+
         return ResponseEntity.ok(scanNotaFiscal);
     }
 
