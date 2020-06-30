@@ -4,10 +4,7 @@ package com.mwave.eco;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +17,9 @@ public class Eco {
 
     @Autowired
     ItemRepository itemRepository;
+
+    @Autowired
+    ScanNotaFiscalRepository scanNotaFiscalRepository;
 
     @GetMapping
     public String getHello() {
@@ -42,5 +42,17 @@ public class Eco {
         return new ResponseEntity<List<Item>>(itens, HttpStatus.OK);
 
     }
+
+    @PostMapping("/notafiscal")
+    public ResponseEntity<ScanNotaFiscal> postNotaFiscal(@RequestBody ScanNotaFiscal scanNotaFiscal) {
+
+        scanNotaFiscalRepository.save(scanNotaFiscal);
+
+        System.out.println("Nota Fiscal");
+        System.out.println("User ID: " + scanNotaFiscal.getUserId());
+        System.out.println("URL : " + scanNotaFiscal.getUrl());
+        return ResponseEntity.ok(scanNotaFiscal);
+    }
+
 
 }
